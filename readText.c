@@ -13,17 +13,14 @@ struct Sentence {
 	size_t sentLenght;
 };
 
+
 struct Text {
 	struct Sentence *sentences;
 	size_t buffLenght;
 };
 
 
-
-
 void readText( struct Text *txt ){
-	
-	
 	
 	FILE *file;
 	wchar_t c;
@@ -38,7 +35,6 @@ void readText( struct Text *txt ){
 	fileUser[wcslen(fileUser)-1] = '\0';
 
 	wcstombs(fileName, fileUser, 80 * sizeof(wchar_t));
-
 
 	file = fopen( fileName, "r" );
 
@@ -60,8 +56,7 @@ void readText( struct Text *txt ){
 			sizeSent += 50;
 			txt->sentences[count].Sent = realloc(txt->sentences[count].Sent, sizeSent * sizeof(wchar_t));
 		}
-		
-			
+					
 		if (  c == '.' ){
 			txt->sentences[count].Sent[index] = '\0';
 			txt->sentences[count].sentLenght = wcslen(txt->sentences[count].Sent);
@@ -79,7 +74,6 @@ void readText( struct Text *txt ){
 		c = fgetwc(file);
 		
 	}while ( c != WEOF );
-
 
 	fclose (file);
 
