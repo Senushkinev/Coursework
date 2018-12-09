@@ -25,7 +25,6 @@ void readText( struct Text *txt ){
 
 	wcstombs(fileName, fileUser, 80 * sizeof(wchar_t));
 
-
 	file = fopen( fileName, "r" );
 
 	txt->sentences = malloc (sizeBuff * sizeof(struct Sentence));
@@ -35,26 +34,30 @@ void readText( struct Text *txt ){
 	
 	do{
 		
-		while( index == 0 && ( c == ' ' || c == '\n' || c == '\t')){
+		while( index == 0 && ( c == ' ' || c == '\n' || c == '\t'))
+			{
 			c = fgetwc(file);
 			}
 
 		txt->sentences[count].Sent[index] = c;	
 		index++;
 		
-		if (index + 2 == sizeSent){
+		if (index + 2 == sizeSent)
+			{
 			sizeSent += 50;
 			txt->sentences[count].Sent = realloc(txt->sentences[count].Sent, sizeSent * sizeof(wchar_t));
 		}
 		
 			
-		if (  c == '.' ){
+		if (  c == '.' )
+			{
 			txt->sentences[count].Sent[index] = '\0';
 			txt->sentences[count].sentLenght = wcslen(txt->sentences[count].Sent);
 			count++;
 			
 			txt->sentences[count].Sent = malloc(sizeSent * sizeof(wchar_t));
-			if ( count == sizeBuff ){
+			if ( count == sizeBuff )
+				{
 				sizeBuff += 10;
 				txt->sentences = realloc (txt->sentences, sizeBuff * sizeof(struct Sentence));
 				}	
