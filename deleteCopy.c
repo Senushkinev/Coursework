@@ -13,6 +13,7 @@ struct Sentence {
 	size_t sentLenght;
 };
 
+
 struct Text {
 	struct Sentence *sentences;
 	size_t buffLenght;
@@ -35,7 +36,6 @@ void deleteCopy( struct Text *txt ){
                                         memmove(txt->sentences+j, txt->sentences+j+1, (txt->buffLenght-j) * sizeof(struct Sentence));
                                         count++;
                                         }
-
                         }
                 }
         }
