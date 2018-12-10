@@ -15,9 +15,9 @@ void deleteOdd( struct Text *txt ){
 	{
 		for ( size_t j = 0; j < txt->sentences[i].sentLenght; j++ )
 		{
-			if ( iswdigit( txt->sentences->Sent[j] ) )
+			if ( iswdigit( txt->sentences[i].Sent[j] ) )
 			{
-				if ( txt->sentences->Sent[j] % 2 )
+				if ( txt->sentences[i].Sent[j] % 2 )
 				{
 				free( txt->sentences[i].Sent );
                                 txt->sentences[i].Sent = NULL;
