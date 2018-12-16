@@ -6,7 +6,7 @@ FLAG = -c
 all: main.o readText.o deleteCopy.o specialSymbols.o 
 	$(CC) main.o readText.o deleteCopy.o specialSymbols.o 
 
-main.o: main.c readText.h deleteCopy.h specialSymbols.h
+main.o: main.c readText.h deleteCopy.h specialSymbols.h deleteOdd.h
 	$(CC) $(FLAG) main.c
 
 readText.o: readText.h readText.c
