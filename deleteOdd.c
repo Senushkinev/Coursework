@@ -9,7 +9,6 @@
 #include "deleteOdd.h"
 
 void deleteOdd( struct Text *txt ){
-	int count = 0;
 
 	for ( size_t i = 0; i < txt->buffLenght; i++ )
 	{
@@ -19,17 +18,18 @@ void deleteOdd( struct Text *txt ){
 			{
 				if ( txt->sentences[i].Sent[j] % 2 )
 				{
+				wprintf(L"%ld ",i);
 				free( txt->sentences[i].Sent );
                                 txt->sentences[i].Sent = NULL;
-                                memmove(txt->sentences+i, txt->sentences+i+1, (txt->buffLenght-i) * sizeof(struct Sentence));
-                                count++;
+                                memmove(txt->sentences+i , txt->sentences+i+1, (txt->buffLenght-i) * sizeof(struct Sentence));
+				txt->buffLenght--;
+				i--;
 				}
-
+			break;
 			}
 		}
 	}
 
-	txt->buffLenght = txt->buffLenght - count;
 
 	struct Sentence *tempPoint = realloc(txt->sentences, (txt->buffLenght) * sizeof(struct Sentence));
 

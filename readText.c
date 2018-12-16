@@ -35,7 +35,7 @@ void readText( struct Text *txt ){
 	
 	do{
 		
-		while( index == 0 && ( c == ' ' || c == '\n' || c == '\t')){
+		while( iswspace(c) && index == 0 ){
 			c = fgetwc(file);
 			}
 
