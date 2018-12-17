@@ -37,7 +37,7 @@ void readText( struct Text *txt ){
 		
 		while( iswspace(c) && index == 0 ){
 			c = fgetwc(file);
-			}
+		}
 
 		txt->sentences[count].Sent[index] = c;	
 		index++;

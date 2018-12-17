@@ -11,6 +11,7 @@
 #include "deleteCopy.h"
 #include "specialSymbols.h"
 #include "deleteOdd.h"
+#include "changeNumber.h"
 
 int main(){
 
@@ -22,11 +23,10 @@ int main(){
 
 	deleteCopy(&txt);
 
-//	specialSymbols(&txt);
+	specialSymbols(&txt);
 
 	deleteOdd(&txt);
-	for (size_t i = 0; i < txt.buffLenght; i++)
-                wprintf(L"%ls [%ld]\n", txt.sentences[i].Sent, txt.sentences[i].sentLenght);
-        wprintf(L"Предложений после считывания:[%ld]\n", txt.buffLenght);
-        wprintf(L"--------------------------------------------------------------------------\n");
+	
+	changeNumber(&txt);
+
 }

@@ -18,7 +18,6 @@ void deleteOdd( struct Text *txt ){
 			{
 				if ( txt->sentences[i].Sent[j] % 2 )
 				{
-				wprintf(L"%ld ",i);
 				free( txt->sentences[i].Sent );
                                 txt->sentences[i].Sent = NULL;
                                 memmove(txt->sentences+i , txt->sentences+i+1, (txt->buffLenght-i) * sizeof(struct Sentence));
