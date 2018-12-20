@@ -12,6 +12,8 @@
 #include "specialSymbols.h"
 #include "deleteOdd.h"
 #include "changeNumber.h"
+#include "transliterationTxt.h"
+
 
 int main(){
 
@@ -23,10 +25,16 @@ int main(){
 
 	deleteCopy(&txt);
 
-	specialSymbols(&txt);
+//	specialSymbols(&txt);
+//
+//	deleteOdd(&txt);
+//	
+//	changeNumber(&txt);
 
-	deleteOdd(&txt);
-	
-	changeNumber(&txt);
+	transliterationTxt(&txt);
+
+	//for (size_t i = 0; i < txt.buffLenght; i++ ){
+	//	wprintf(L"%ls\n", txt.sentences[i].Sent);
+	//}
 
 }
