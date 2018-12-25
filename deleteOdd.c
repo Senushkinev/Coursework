@@ -23,8 +23,8 @@ void deleteOdd( struct Text *txt ){
                                 memmove(txt->sentences+i , txt->sentences+i+1, (txt->buffLenght-i) * sizeof(struct Sentence));
 				txt->buffLenght--;
 				i--;
+				break;
 				}
-			break;
 			}
 		}
 	}
@@ -35,6 +35,6 @@ void deleteOdd( struct Text *txt ){
 	if (tempPoint)
 		txt->sentences = tempPoint;
 	else
-	wprintf(L" Realloc не смог найти память под новый массив указателей\n ");
+		wprintf(L" Realloc не смог найти память под новый массив указателей\n ");
 
 }

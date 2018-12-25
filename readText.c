@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <errno.h>
 
 #include <wchar.h>
 #include <wctype.h>
@@ -9,7 +9,7 @@
 
 #include "readText.h"
 
-void readText( struct Text *txt ){
+int readText( struct Text *txt ){
 	
 	FILE *file;
 	wchar_t c;
@@ -27,6 +27,11 @@ void readText( struct Text *txt ){
 
 
 	file = fopen( fileName, "r" );
+
+   	if (errno == 2) {
+        	wprintf(L"Вы ввели неправильное название файла или файла не существует.\n\t\tПрограмма завершена\n");
+       		return 1;
+    		}
 
 	txt->sentences = malloc (sizeBuff * sizeof(struct Sentence));
 	txt->sentences[count].Sent = malloc(sizeSent * sizeof(wchar_t));
@@ -69,4 +74,5 @@ void readText( struct Text *txt ){
 	fclose (file);
 
 	txt->buffLenght = count;	
+	return 0;
 	} 

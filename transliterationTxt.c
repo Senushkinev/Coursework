@@ -105,7 +105,8 @@ void transliterationTxt( struct Text *txt ){
     				}
     			}
     		}
-		wprintf(L"%ls\n",txt->sentences[i].Sent);
+
+		txt->sentences[i].sentLenght = wcslen(txt->sentences[i].Sent);
         }
     }
 

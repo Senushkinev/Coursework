@@ -1,3 +1,3 @@
 #include "struct.h"
 
-void readText( struct Text *txt );
+int readText( struct Text *txt );

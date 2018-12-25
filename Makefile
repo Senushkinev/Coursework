@@ -3,10 +3,10 @@ FLAG = -c
 
 
 
-all: main.o readText.o deleteCopy.o specialSymbols.o deleteOdd.o changeNumber.o transliterationTxt.o
-	$(CC) main.o readText.o deleteCopy.o specialSymbols.o deleteOdd.o changeNumber.o transliterationTxt.o
+all: main.o readText.o deleteCopy.o specialSymbols.o deleteOdd.o changeNumber.o transliterationTxt.o printTxt.o
+	$(CC) main.o readText.o deleteCopy.o specialSymbols.o deleteOdd.o changeNumber.o transliterationTxt.o printTxt.o
 
-main.o: main.c readText.h deleteCopy.h specialSymbols.h deleteOdd.h changeNumber.h
+main.o: main.c readText.h deleteCopy.h specialSymbols.h deleteOdd.h changeNumber.h printTxt.h
 	$(CC) $(FLAG) main.c
 
 readText.o: readText.h readText.c
@@ -26,6 +26,9 @@ changeNumber.o: changeNumber.h changeNumber.c
 
 transliterationTxt.o: transliterationTxt.h transliterationTxt.c
 	$(CC) $(FLAG) transliterationTxt.c
+
+printTxt.o: printTxt.h printTxt.c
+	$(CC) $(FLAG) printTxt.c 
 
 clean:
 	rm -rf *.o a.out
