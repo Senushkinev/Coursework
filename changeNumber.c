@@ -66,4 +66,3 @@ void changeNumber( struct Text *txt ){
     }
 }
 
-

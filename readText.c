@@ -21,7 +21,7 @@ int readText( struct Text *txt ){
 	wprintf(L"Откуда считать текст ?\n");
 
 	fgetws(fileUser, 80 * sizeof(wchar_t), stdin);
-	fileUser[wcslen(fileUser)-1] = '\0';
+	fileUser[wcslen(fileUser)-1] = L'\0';
 
 	wcstombs(fileName, fileUser, 80 * sizeof(wchar_t));
 
@@ -54,7 +54,7 @@ int readText( struct Text *txt ){
 		
 			
 		if (  c == '.' ){
-			txt->sentences[count].Sent[index] = '\0';
+			txt->sentences[count].Sent[index] = L'\0';
 			txt->sentences[count].sentLenght = wcslen(txt->sentences[count].Sent);
 			count++;
 			

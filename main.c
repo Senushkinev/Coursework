@@ -71,4 +71,9 @@ int main(){
 
         }while ( choice[0] != L'0');
 
+	for (size_t i = 0;i < txt.buffLenght; i++)
+        	free( txt.sentences[i].Sent );
+
+
+
 }
